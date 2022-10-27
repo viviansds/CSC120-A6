@@ -15,12 +15,8 @@ public class House extends Building {
     public boolean hasDiningRoom(){
       return this.hasDiningRoom;
     }
-    public boolean nResidents(){
-      if(this.residents.size()>0){
-        return true;
-      }else{
-        return false;
-      }
+    public int nResidents(){
+      return this.residents.size();
     }
 
     public void moveIn(String name){
@@ -39,9 +35,13 @@ public class House extends Building {
       System.out.println("You have built a house: 🏠");
       House myHouse = new House("Chapin","3 Chapin Way",4);
       System.out.println(myHouse);
+      System.out.println("Does this house has a dining room?");
+      System.out.println(myHouse.hasDiningRoom());
+      System.out.println("There are "+myHouse.nResidents()+" residents");
       myHouse.moveIn("Vivian");
+      System.out.println("Does Vivian lives here?");
       System.out.println(myHouse.isResident("Vivian"));
-      myHouse.moveOut("Vivian");
+      System.out.println(myHouse.moveOut("Vivian")+" has moved out");
       System.out.println(myHouse.isResident("Vivian"));
     }
 

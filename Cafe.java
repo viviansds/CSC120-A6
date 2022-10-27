@@ -15,16 +15,22 @@ public class Cafe extends Building{
     }
     // is it okay to change parameters name?
     public void sellCoffee(int size, int sugar, int cream){
-        if (nCoffeeOunces>=size && nSugarPackets>=nSugarPackets && nCreams>=nCreams && nCups>=1) {
+         // first check inventory,restock if needed, and sell coffee
+        if (nCoffeeOunces<=size || nSugarPackets<=nSugarPackets || nCreams<=nCreams ||nCups<=1) {
+            System.out.println("low in stock, restocking");
+            restock(100, 100,100,10);
             this.nCoffeeOunces -= size;
             this.nSugarPackets -= sugar;
             this.nCreams -= cream;
             this.nCups -= 1;
             System.out.println("remaining inventory: "+ nCoffeeOunces+" ounces of cofee,"+nSugarPackets+" sugar packets,"+nCreams +" number of creams, and "+nCups+"cups");
         }else{
-            System.out.println("low in stock, restocking");
-            restock(100, 100,100,100);
-            // after restocking, should it sell cofeee again?
+            this.nCoffeeOunces -= size;
+            this.nSugarPackets -= sugar;
+            this.nCreams -= cream;
+            this.nCups -= 1;
+            System.out.println("remaining inventory: "+ nCoffeeOunces+" ounces of cofee,"+nSugarPackets+" sugar packets,"+nCreams +" number of creams, and "+nCups+"cups");
+           
         }
     }
       
