@@ -1,3 +1,9 @@
+/*
+ * Cafe class 
+ * Assignment 6: Use What Your Parent (Class) Gave You
+ * @author Vivian Wei
+ * @version 30 October 2022
+ */
 public class Cafe extends Building{
 
     /* Subclass attributes */
@@ -31,20 +37,28 @@ public class Cafe extends Building{
      */
     public void sellCoffee(int size, int sugar, int cream){
          // first check inventory,restock if needed, and sell coffee
-        if (nCoffeeOunces<=size || nSugarPackets<=nSugarPackets || nCreams<=nCreams ||nCups<=1){//true when at least one condiion is met
-            System.out.println("low in stock, restocking");
+        if (nCoffeeOunces<=size || nSugarPackets<=sugar || nCreams<=cream ||nCups<=1){//true when at least one condiion is met
+            System.out.println("Low in stock, restocking");
             restock(100, 100,100,10);//call the restock method
             this.nCoffeeOunces -= size;
             this.nSugarPackets -= sugar;
             this.nCreams -= cream;
             this.nCups -= 1;//always decrease number of cups by 1 when coffee sold
-            System.out.println("remaining inventory: "+ nCoffeeOunces+" ounces of cofee,"+nSugarPackets+" sugar packets,"+nCreams +" number of creams, and "+nCups+"cups");
+            System.out.println("Coffee Sold! Please Enjoy...");
+            System.out.println("remaining inventory: "+ nCoffeeOunces+" ounces of cofee,"+
+                                nSugarPackets+" sugar packets,"+
+                                nCreams +" number of creams, and "+
+                                nCups+"cups");
         }else{//when all conditions are not met
             this.nCoffeeOunces -= size;
             this.nSugarPackets -= sugar;
             this.nCreams -= cream;
             this.nCups -= 1;
-            System.out.println("remaining inventory: "+ nCoffeeOunces+" ounces of cofee,"+nSugarPackets+" sugar packets,"+nCreams +" number of creams, and "+nCups+"cups");
+            System.out.println("Coffee Sold! Please Enjoy...");
+            System.out.println("remaining inventory: "+ nCoffeeOunces+" ounces of cofee,"+
+                                nSugarPackets+" sugar packets,"+
+                                nCreams +" number of creams, and "+
+                                nCups+"cups");
         }
     }
     
@@ -62,10 +76,12 @@ public class Cafe extends Building{
     }
     /* Main method for testing */
     public static void main(String[] args) {
-        Cafe myCafe = new Cafe("Campus Cafe", "1 Chapin Way",1,100,100,100,100);
+        Cafe myCafe = new Cafe("Campus Cafe", "1 Chapin Way",1,
+                            100,100,100,100);
         System.out.println("You have built a cafe: ☕");
         System.out.println(myCafe);
         myCafe.sellCoffee(101,2,3);
+        myCafe.sellCoffee(20,2,3);
     }
     
 }

@@ -1,3 +1,9 @@
+/*
+ * Library class 
+ * Assignment 6: Use What Your Parent (Class) Gave You
+ * @author Vivian Wei
+ * @version 30 October 2022
+ */
 import java.util.Hashtable;
 
 public class Library extends Building{
@@ -13,6 +19,7 @@ public class Library extends Building{
       super(name, address, nFloors);//Inherited attributes from parent class
       this.collection = new Hashtable<String, Boolean>();//initialize an empty hashtable
     }
+
     /* Add book's author and title to the library's collection
      * @param title
      */
@@ -20,6 +27,7 @@ public class Library extends Building{
       this.collection.put(title,true);
       System.out.println("Adding "+title+" to collection...");
     }
+    
     /* Remove the book from the  library's collection and return the title that we removed
      * @return title
      */

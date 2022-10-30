@@ -1,3 +1,9 @@
+/*
+ * House class 
+ * Assignment 6: Use What Your Parent (Class) Gave You
+ * @author Vivian Wei
+ * @version 30 October 2022
+ */
 import java.util.ArrayList;
 
 public class House extends Building {
@@ -17,6 +23,7 @@ public class House extends Building {
       this.residents = new ArrayList<String>();//initialize an empty arraylist
       this.hasDiningRoom = hasDR;
     }
+    
     /* Accesor for hasDiningRoom
      * @return true if the house has dining room, false otherwise
      */

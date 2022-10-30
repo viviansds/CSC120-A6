@@ -1,5 +1,6 @@
 Use this file to record your reflection on this assignment.
 
 - What are your initial impressions of how `Inheritance` affects your programming?
-Inheritance allowed us to embody ths idea of "parsimony", it reduces repetitive code and optimize the code by minimizing any accidental errors.
+Use one Superclass Building to umbrella the other kinds of building, like Cafe, House, and Library is very covinient for me to code. Inheritance allowed us to embody ths idea of "parsimony", it reduces repetitive code and optimize the code by minimizing any accidental errors. After recogizing their shared attributes, I can focus on looking at their differences and adds any additional method appropriate for that specific subclass.
 - What worked, what didn't, what advice would you give someone taking this course in the future?
+I think that this assigment is the easiest to follow and I got through all of them very quickly. I was a little bit unsure about what goes in to the parameters for the subclass because the example of Onecard only included the attributes for the superclass. I later figured out that I can add other subclass attributes in the parameters so the code can be more robust. I also spend quite some time reading the java documentation for hashtable because this is the first time that I encounter this object type. I think one advice I would give for future students is to prioritize understanding what the code is doing on an abstract level and then the actual coding formats that does the inheritance will become very easy. 
