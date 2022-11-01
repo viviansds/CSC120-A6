@@ -34,6 +34,7 @@ public class Library extends Building{
      */
     public String removeTitle(String title){
       this.collection.remove(title);
+      System.out.println("Removing "+title+"...");
       return title;
     } 
 
@@ -58,7 +59,13 @@ public class Library extends Building{
      * @return true if the title appears as a key in the Libary's collection, false otherwise 
      */
     public boolean containsTitle(String title){
-      return this.collection.containsKey(title);
+      if(this.collection.containsKey(title)){
+        System.out.println(title+" is in the collection.");
+        return true;
+      }else{
+        System.out.println(title+" is not in the collection.");
+        return false;
+      }
     } 
 
     /* Check if the book is available for check out
@@ -104,13 +111,15 @@ public class Library extends Building{
       myLibrary.addTitle("Harry Potter by J.K.Rowling");
       myLibrary.addTitle("Little Prince by Antoine de Saint-Exupéry");
       System.out.println(myLibrary.collection);
-      System.out.println("This book exist in the collection: "+myLibrary.containsTitle("The Lorax by Dr. Seuss"));
+      myLibrary.containsTitle("The Lorax by Dr. Seuss");
       myLibrary.checkOut("The Lorax by Dr. Seuss");
       myLibrary.isAvailable("The Lorax by Dr. Seuss");
       myLibrary.returnbook("The Lorax by Dr. Seuss");
       myLibrary.printCollection();
-      System.out.println("removing "+myLibrary.removeTitle("The Lorax by Dr. Seuss"));
+      myLibrary.removeTitle("The Lorax by Dr. Seuss");
       myLibrary.printCollection();
-      myLibrary.isAvailable("The Lorax by Dr. Seuss");
+      myLibrary.isAvailable("Harry Potter by J.K.Rowling");
+      //This last code test to throw run time exception when trying to check the avalability of a book outside the collection
+      // myLibrary.isAvailable("The Lorax by Dr. Seuss"); 
     }
   }

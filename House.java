@@ -52,6 +52,7 @@ public class House extends Building {
      */
     public String moveOut(String name){
       this.residents.remove(name);
+      System.out.println(name+" has moved out");
       return name;
     } 
     
@@ -60,7 +61,13 @@ public class House extends Building {
      * @return true if the person's name is contained in the residents arraylist, false otherwise
      */
     public boolean isResident(String person){
-      return this.residents.contains(person);
+      if(this.residents.contains(person)){
+        System.out.println(person+" is a resident here.");
+        return true;
+      }else{
+        System.out.println(person+" is not a resident here.");
+        return false;
+      }
     }
 
     /* Main method for testing */
@@ -72,11 +79,9 @@ public class House extends Building {
       System.out.println(myHouse.hasDiningRoom());
       System.out.println("There are "+myHouse.nResidents()+" residents");
       myHouse.moveIn("Vivian");
-      System.out.println("Does Vivian lives here?");
-      System.out.println(myHouse.isResident("Vivian"));
-      System.out.println(myHouse.moveOut("Vivian")+" has moved out");
-      System.out.println("Does Vivian lives here?");
-      System.out.println(myHouse.isResident("Vivian"));
+      myHouse.isResident("Vivian");
+      myHouse.moveOut("Vivian");
+      myHouse.isResident("Vivian");
     }
 
 }
