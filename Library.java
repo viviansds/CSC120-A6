@@ -111,11 +111,11 @@ public class Library extends Building{
       myLibrary.addTitle("Harry Potter by J.K.Rowling");
       myLibrary.addTitle("Little Prince by Antoine de Saint-Exupéry");
       System.out.println(myLibrary.collection);
+      myLibrary.printCollection();
       myLibrary.containsTitle("The Lorax by Dr. Seuss");
       myLibrary.checkOut("The Lorax by Dr. Seuss");
       myLibrary.isAvailable("The Lorax by Dr. Seuss");
       myLibrary.returnbook("The Lorax by Dr. Seuss");
-      myLibrary.printCollection();
       myLibrary.removeTitle("The Lorax by Dr. Seuss");
       myLibrary.printCollection();
       myLibrary.isAvailable("Harry Potter by J.K.Rowling");
