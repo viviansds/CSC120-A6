@@ -5,6 +5,7 @@
  * @version 30 October 2022
  */
 import java.util.Hashtable;
+import java.util.Set; //import Set to iterate with for loops
 
 public class Library extends Building{
     /* Subclass attributes */
@@ -63,18 +64,35 @@ public class Library extends Building{
     /* Check if the book is available for check out
      * @param title
      * @return true if the title is currently available, false otherwise 
+     * @throw RuntimeException
      */
     public boolean isAvailable(String title){
-      if (this.collection.get(title).equals(true)){
-        return true;
+      if (containsTitle(title)){
+        if (this.collection.get(title)){
+          System.out.println("This book is available to checkout.");
+          return true;
+        }else{
+          System.out.println("This book is not available to checkout.");
+          return false;
+        }
       }else{
-        return false;
+        throw new RuntimeException("Unable to check for availability because the library does not contain the requested book.");
       }
     }
-
+      
     /* prints out the entire collection in an easy-to-read way (including checkout status) */
     public void printCollection(){
-      System.out.println("The entire collection: "+this.collection.toString());
+        Set<String> books = this.collection.keySet(); //Create a set containing only the keys from the hashtable
+        System.out.println("*** Here is the entire collection ***");
+        //iterate the set with for loop
+        for(String title: books){
+          //use if-else to separate the true/false value
+          if(this.collection.get(title)){
+            System.out.println(title + " (Available)");
+          }else{
+            System.out.println(title + " (Currently checked out)");
+          }
+        }
     }
 
     /* Main method for testing */
@@ -83,11 +101,16 @@ public class Library extends Building{
       System.out.println("You have built a library: 📖");
       System.out.println(myLibrary);
       myLibrary.addTitle("The Lorax by Dr. Seuss");
+      myLibrary.addTitle("Harry Potter by J.K.Rowling");
+      myLibrary.addTitle("Little Prince by Antoine de Saint-Exupéry");
+      System.out.println(myLibrary.collection);
       System.out.println("This book exist in the collection: "+myLibrary.containsTitle("The Lorax by Dr. Seuss"));
       myLibrary.checkOut("The Lorax by Dr. Seuss");
-      System.out.println("This book is available to checkout: "+myLibrary.isAvailable("The Lorax by Dr. Seuss"));
+      myLibrary.isAvailable("The Lorax by Dr. Seuss");
       myLibrary.returnbook("The Lorax by Dr. Seuss");
       myLibrary.printCollection();
       System.out.println("removing "+myLibrary.removeTitle("The Lorax by Dr. Seuss"));
+      myLibrary.printCollection();
+      myLibrary.isAvailable("The Lorax by Dr. Seuss");
     }
   }
